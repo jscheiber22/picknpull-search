@@ -4,22 +4,31 @@ from webdriver_manager.chrome import ChromeDriverManager
 import re
 
 class PickNPull:
+    #  A dictionary of some models to make the searching process as easily as possible
+    models = {
+        "IS300": {
+            "makeValue": "170",
+            "modelValue": "3320"
+        },
+        "WRX": {
+            "makeValue": "226",
+            "modelValue": "4155"
+        },
+        "IMPREZA": {
+            "makeValue": "226",
+            "modelValue": "4153"
+        },
+        "ACCORD": {
+            "makeValue": "145",
+            "modelValue": "2366"
+        }
+    }
+
     # This initializes the instance with the specified make and model along with the zip code and search radius defaulted to 95648 and 50 respectively.
     def __init__(self, model, startYear = None, endYear = None, zipcode = "95648", searchRadius = "50", verbose = False):
-        # At this point, this is simply an arbitrary determination of the values Pick N Pull has assigned to the makes and models and uses for their searching feature.
-        # I figured that most model names are unique to their makes, so simply searching for the model would make the searching process simpler.
-        if model == "IS300":
-            self.makeValue = 170
-            self.modelValue = 3320
-        elif model == "WRX":
-            self.makeValue = 226
-            self.modelValue = 4155
-        elif model == "IMPREZA":
-            self.makeValue = 226
-            self.modelValue = 4153
-        elif model == "ACCORD":
-            self.makeValue = 145
-            self.modelValue = 2366
+        if model in self.models:
+            self.makeValue = self.models[model]["makeValue"]
+            self.modelValue = self.models[model]["modelValue"]
         else: # Defaults the values to IS300 because it is by far the coolest
             self.makeValue = 170
             self.modelValue = 3320
