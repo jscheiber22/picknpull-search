@@ -15,7 +15,7 @@ To use the API in your own python file:<br>
 			-- "IS300"<br>
 			-- "WRX"<br>
 			-- "IMPREZA"<br>
-			-- "ACCORD"<br>bruh
+			-- "ACCORD"<br>
 		-- startYear - the first year to include in your search. Must also include an endYear<br>
 		-- endYear - the last year to include in your search. Must also include a startYear<br>
 		-- zipcode - the zip code to search around<br>
